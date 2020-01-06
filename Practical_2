@@ -1,0 +1,100 @@
+MainActivity.xml
+-----------------------------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_marginTop="100dp"
+        android:fontFamily="sans-serif-black"
+        android:paddingTop="10dp"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textColor="#5E2323"
+        android:textSize="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/Et1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:fontFamily="serif"
+        android:hint="Enter Username"
+        android:paddingLeft="20dp"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <EditText
+        android:id="@+id/Et2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:fontFamily="serif"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        android:paddingLeft="20dp"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Et1"/>
+
+    <Button
+        android:id="@+id/Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="264dp"
+        android:layout_marginTop="72dp"
+        android:text="Login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Et2"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="20dp"
+        android:background="#ffff"
+        android:textColor="#A250FF"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+-----------------------------------------------------------------------------------------------------------------------------------
+package com.example.practical.demo;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    EditText e1,e2;
+    Button b;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        e1 = findViewById(R.id.Et1);
+        e2 = findViewById(R.id.Et2);
+        b = findViewById(R.id.Login);
+        b.setOnClickListener((v)->{
+            process();
+        });
+     }
+
+    public void process(){
+
+      if(e1.getText().toString().equals("A")&&e2.getText().toString().equals("B")){
+          Toast.makeText(this,"Login Done :)",Toast.LENGTH_LONG).show();
+      }else{
+          Toast.makeText(this,"Login Fail :(",Toast.LENGTH_LONG).show();
+      }
+
+    }
+}
